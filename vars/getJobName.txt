@@ -1,0 +1,5 @@
+In multibranch pipelines, there's no way to get job name from env variables as:
+- JOB_NAME returns $JOB_NAME/$BRANCH_NAME
+- JOB_BASE_NAME returns only $BRANCH_NAME
+
+In situations where job name is required without branch name, getJobName can be used.
