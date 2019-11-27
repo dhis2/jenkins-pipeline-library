@@ -1,0 +1,2 @@
+In Jenkins multibranch pipeline, there's no way to get a branch path. It's easy when the branch is representing a branch, but not when it represents the tag. 
+In cases where jenkins pipeline is building tag, this method should be used. Method will return a path to the multibranch folder. 
