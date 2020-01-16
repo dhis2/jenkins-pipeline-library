@@ -1,3 +1,5 @@
+import groovy.json.*
+
 def resetWar(credentials, host, name) {
   def json = JsonOutput.toJson(
     [extra_vars: [
