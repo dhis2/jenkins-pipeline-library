@@ -15,7 +15,7 @@ def resetWar(credentials, host, name) {
     sleep(10) 
     def job_response=["curl", "-u", "$credentials", "-X", "GET", "-s", "https://awx.dhis2.org/api/v2/jobs/$job_id/"].execute().text
            
-    def status=sh(
+    status=sh(
       script: "echo $job_response | python -c 'import sys, json; print json.load(sys.stdin)[\"status\"]'",
       returnStdout: true
     )
