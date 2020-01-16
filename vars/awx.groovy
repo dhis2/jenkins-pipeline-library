@@ -5,7 +5,7 @@ def resetWar(credentials, host, name) {
     [extra_vars: [
       instance_host: host, 
       instance_name: name, 
-      instance_action: reset_war
+      instance_action: "reset_war"
     ]]
   )
   
