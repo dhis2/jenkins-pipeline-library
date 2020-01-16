@@ -3,7 +3,7 @@ import groovy.json.*
 def resetWar(credentials, host, name) {
   def json = JsonOutput.toJson(
     [extra_vars: [
-      instance_host: host, 
+      instance_host: "[$host]", 
       instance_name: name, 
       instance_action: "reset_war"
     ]]
