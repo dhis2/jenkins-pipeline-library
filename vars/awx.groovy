@@ -21,7 +21,7 @@ def resetWar(credentials, host, name) {
 
     if(status=='failed') {
       echo "Ansible job failed. Exiting"
-      exit 0
+      return 0
     }
   }
 }
