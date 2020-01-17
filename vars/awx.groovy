@@ -22,7 +22,8 @@ def resetWar(credentials, host, name) {
     if(status=='failed') {
       sh(
         returnStatus: true,
-        script: "exit 0"
+        script: "exit 0",
+        returnStdout: true
       )
     }
   }
