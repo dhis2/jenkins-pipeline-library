@@ -18,10 +18,6 @@ def resetWar(credentials, host, name) {
     def job_response=["curl", "-u", credentials, "-X", "GET", "-s", "https://awx.dhis2.org/api/v2/jobs/$job_id/"].execute().text
            
     status = new JsonSlurper().parseText(job_response).get("status")
-
-    if(status=='failed') {
-      echo "Ansible job failed. Exiting"
-      return 0
-    }
+    assert status != "failed" : "Ansible job failed. Exiting.."
   }
 }
