@@ -8,7 +8,8 @@ def resetWar(credentials, host, name) {
       instance_action: "reset_war"
     ]]
   )
-	def response = ["curl", "-u", credentials, "-k", "-X", "POST", "-H", "Content-Type: application/json", "-d", "${json}", "https://awx.dhis2.org/api/v2/job_templates/10/launch/"].execute().text
+  def response = ["curl", "-u", credentials, "-k", "-X", "POST", "-H", "Content-Type: application/json", "-d", "${json}", "https://awx.dhis2.org/api/v2/job_templates/10/launch/"].execute().text
+  echo "$response"
   def job_id = new JsonSlurper().parseText(response).get("job")
   def status="not_started"
 
