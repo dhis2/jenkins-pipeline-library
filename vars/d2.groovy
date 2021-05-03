@@ -1,11 +1,11 @@
-def startCluster( credentials, name, port ) {
+def startCluster( name, port, credentials ) {
     sh "d2 cluster --channel dev --port ${port} up --update ${name}"
     
     wait("$credentials", "$port")
 
 }
 
-def startClusterWithSL( credentials, name, port ) {
+def startClusterAndSeed( name, port, credentials ) {
     sh "d2 cluster --channel dev --port ${port} up --update ${name} --seed"
     wait("$credentials", "$port")
 }
