@@ -1,5 +1,5 @@
 #!/usr/bin/groovy
-def findFreePort() {
+def call() {
     ServerSocket serverSocket
     try {
         serverSocket = new ServerSocket(0)
