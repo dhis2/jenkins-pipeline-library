@@ -21,6 +21,6 @@ def wait(port) {
     while (response != "200") {
         echo "status: $response"
         sleep(5) 
-        response = ["curl", "-k", "-L" "-X", "GET", "-w", "%{http_code}", "--silent", "-o /dev/null", "http://localhost:${port}"].execute().text
+        response = ["curl", "-k", "-L", "-X", "GET", "-w", "%{http_code}", "--silent", "-o /dev/null", "http://localhost:${port}"].execute().text
     }
 }
