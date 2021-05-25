@@ -1,11 +1,15 @@
 import groovy.json.*
 
 def resetWar(credentials, host, name) {
+  launchJob(credentials, host, name, "reset_war")
+}
+
+def launchJob(credentials, host, name, action) {
   def json = JsonOutput.toJson(
     [extra_vars: [
       instance_host: [host], 
       instance_name: name, 
-      instance_action: "reset_war"
+      instance_action: action
     ]]
   )
   def response = ["curl", "-u", credentials, "-k", "-X", "POST", "-H", "Content-Type: application/json", "-d", "${json}", "https://awx.dhis2.org/api/v2/job_templates/10/launch/"].execute().text
@@ -22,3 +26,4 @@ def resetWar(credentials, host, name) {
     assert status != "failed" : "Ansible job failed. Exiting.."
   }
 }
+
